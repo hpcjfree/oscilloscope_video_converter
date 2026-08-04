@@ -117,6 +117,11 @@ build_windows_exe.bat
 
 生成文件位于 `dist\OscilloscopeVideoConverter.exe`。
 
+## 效果
+
+https://github.com/user-attachments/assets/94c453c6-c49c-49f3-96d8-af0684e89aa3
+
+
 ## 输入视频建议
 
 - 主体尽量使用纯白，背景使用纯黑。
