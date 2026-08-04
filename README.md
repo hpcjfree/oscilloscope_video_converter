@@ -9,13 +9,13 @@
 
 程序提供桌面图形界面和命令行两种用法。
 
-## 1. 工作原理
+## 工作原理
 
 程序逐帧读取视频，进行二值化和轮廓提取，把轮廓变成一连串 `(x, y)` 坐标，然后按视频帧率把坐标分配到音频采样点中。最终将 X 写入 WAV 左声道，将 Y 写入右声道。
 
 注意：普通立体声音频只有 X/Y 两路，没有示波器 Z 轴或消隐信号。因此，当一帧中有多个互不相连的轮廓时，电子束从一个轮廓跳到另一个轮廓的过程中可能画出连接线。程序使用最近邻排序尽量缩短连接线，但不能从原理上完全消除。要彻底消隐，需要第三路 Z 轴/亮度控制或专用矢量显示硬件。
 
-## 2. 安装
+## 安装
 
 需要 Python 3.10 或更高版本。
 
@@ -39,7 +39,7 @@ source .venv/bin/activate
 pip install -r requirements.txt
 ```
 
-## 3. 启动图形界面
+## 启动图形界面
 
 ```bash
 python oscilloscope_video_converter.py
@@ -59,7 +59,7 @@ Windows 也可以双击 `run_gui.bat`，但需要先安装 Python。
 
 如果音频接口只支持 96 kHz，就选择 96000。采样率越高，曲线通常越细腻。
 
-## 4. 命令行用法
+## 命令行用法
 
 ```bash
 python oscilloscope_video_converter.py input.mp4 output.wav
@@ -82,7 +82,7 @@ python oscilloscope_video_converter.py input.mp4 output.wav \
 python oscilloscope_video_converter.py --help
 ```
 
-## 5. 示波器连接
+## 示波器连接
 
 1. 将示波器切换到 XY 模式。
 2. 音频接口左声道接 X 输入，右声道接 Y 输入，共地。
@@ -93,7 +93,7 @@ python oscilloscope_video_converter.py --help
 
 很多消费级声卡输出是交流耦合的，会去除直流分量，因此画面可能自动居中或出现低频形变。这是硬件特性，不是 WAV 文件损坏。
 
-## 6. 参数说明
+## 参数说明
 
 - **采样率**：单位 Hz。推荐 96 kHz 或 192 kHz。
 - **处理分辨率**：仅影响轮廓提取精度，不改变视频时长。
@@ -107,7 +107,7 @@ python oscilloscope_video_converter.py --help
 - **交换/反转轴**：用于修正旋转或镜像。
 - **边缘留白**：防止波形贴近满量程边缘。
 
-## 7. 制作 Windows 单文件 EXE（可选）
+## 制作 Windows 单文件 EXE（可选）
 
 ```bat
 pip install pyinstaller
@@ -116,7 +116,7 @@ build_windows_exe.bat
 
 生成文件位于 `dist\OscilloscopeVideoConverter.exe`。
 
-## 8. 输入视频建议
+## 输入视频建议
 
 - 主体尽量使用纯白，背景使用纯黑。
 - 线条不要太细，避免压缩编码后断裂。
