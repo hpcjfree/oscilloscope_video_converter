@@ -44,6 +44,7 @@ pip install -r requirements.txt
 ```bash
 python oscilloscope_video_converter.py
 ```
+![GUI](https://raw.githubusercontent.com/hpcjfree/oscilloscope_video_converter/refs/heads/main/GUI.png)
 
 Windows 也可以双击 `run_gui.bat`，但需要先安装 Python。
 
